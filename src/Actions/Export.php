@@ -81,7 +81,7 @@ class Export extends AbstractAction
 
     protected function getFileName()
     {
-        return sprintf('%s_%s.xls', $this->dataType->display_name_plural, Carbon::now()->format('Y-m-d_H_i'));
+        return sprintf('%s_%s.xlsx', $this->dataType->display_name_plural, Carbon::now()->format('Y-m-d_H_i'));
     }
 
     protected function redirect()
