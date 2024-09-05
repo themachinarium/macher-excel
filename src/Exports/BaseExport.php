@@ -34,6 +34,8 @@ class BaseExport extends AbstractExport implements FromCollection
             foreach ($fields as $row) {
                 $options = $row->details;
 
+                echo $row->type . PHP_EOL;
+
                 if ($row->type == 'relationship') {
                     if ($options->type == 'belongsTo') {
                         $model = app($options->model);
@@ -57,6 +59,8 @@ class BaseExport extends AbstractExport implements FromCollection
                             }
                         }
                     }
+                } else if ($res[$row->field] instanceof \UnitEnum) {
+                    $arr[$row->field] = __($res[$row->field]->name) ?? '';
                 } else {
                     $arr[$row->field] = $res[$row->field] ?? '';
                 }
