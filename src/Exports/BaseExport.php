@@ -34,8 +34,6 @@ class BaseExport extends AbstractExport implements FromCollection
             foreach ($fields as $row) {
                 $options = $row->details;
 
-                echo $row->type . PHP_EOL;
-
                 if ($row->type == 'relationship') {
                     if ($options->type == 'belongsTo') {
                         $model = app($options->model);
