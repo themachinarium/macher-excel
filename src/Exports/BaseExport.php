@@ -57,6 +57,8 @@ class BaseExport extends AbstractExport implements FromCollection
                             }
                         }
                     }
+                } else if ($res[$row->field] instanceof \UnitEnum) {
+                    $arr[$row->field] = __($res[$row->field]->name) ?? '';
                 } else {
                     $arr[$row->field] = $res[$row->field] ?? '';
                 }
